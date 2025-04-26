@@ -1,9 +1,9 @@
 import asyncio
-
-from aiogram import Dispatcher, Bot
-
+from aiogram import Bot, Dispatcher
 from app.config import settings
 from app.handlers import routers
+
+
 
 
 async def main():
@@ -15,8 +15,5 @@ async def main():
 
     await dp.start_polling(bot)
 
-
-try:
+if __name__ == "__main__":
     asyncio.run(main())
-except KeyboardInterrupt:
-    pass
