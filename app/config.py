@@ -1,7 +1,12 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
+    TG_TOKEN: str
+
     DB_HOST: str
     DB_PORT: int
     DB_USER: str
@@ -9,15 +14,8 @@ class Settings(BaseSettings):
     DB_NAME: str
     DB_DRIVER: str
 
-    CACHE_HOST: str
-    CACHE_PORT: int
-    CACHE_DB: int
-
-    JWT_SECRET_KEY: str
-    ALGORITHM: str
-
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=BASE_DIR / ".env",
         env_file_encoding="utf-8"
     )
 
