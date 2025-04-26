@@ -2,6 +2,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    TG_TOKEN: str
+
     DB_HOST: str
     DB_PORT: int
     DB_USER: str
@@ -17,7 +19,7 @@ class Settings(BaseSettings):
     ALGORITHM: str
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file="../.env",
         env_file_encoding="utf-8"
     )
 
